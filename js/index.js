@@ -8,89 +8,64 @@
   /* ── PROJECT DATA ── */
   const PROJECTS = [
     {
-      name: 'ASOLO PROSECCO',
+      name: 'BRILLIANT WEBSITES',
       bg: '#E8A020',
       textColor: 'rgba(50,22,0,0.15)',
       cardBg: '#C07810',
-      cardTop: 'ASOLO',
-      cardBot: 'PROSECCO',
+      cardTop: 'WEB',
+      cardBot: 'DESIGNS',
       paperLight: 'rgba(255,230,140,0.92)',
       paperMid:   'rgba(210,160,40,0.78)',
       paperDark:  'rgba(160,110,10,0.70)',
-      icon: `<svg viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <rect x="7" y="7" width="46" height="46" rx="2" stroke="white" stroke-width="1.4" fill="none"/>
-        <line x1="7" y1="20" x2="53" y2="20" stroke="white" stroke-width="1"/>
-        <path d="M14 38 Q22 30 30 33 Q38 36 46 27" stroke="white" stroke-width="1.4" fill="none" stroke-linecap="round"/>
-        <path d="M14 45 Q22 37 30 40 Q38 43 46 34" stroke="white" stroke-width="1.1" fill="none" stroke-linecap="round" opacity="0.7"/>
-        <rect x="20" y="8" width="20" height="11" rx="1" stroke="white" stroke-width="1" fill="rgba(255,255,255,0.12)"/>
-      </svg>`,
+      icon: `<div style="font-size:48px">🌐</div>`,
     },
     {
-      name: "COMPASSO D'ORO",
+      name: "E-COMMERCE STORES",
       bg: '#C8A460',
       textColor: 'rgba(255,255,255,0.17)',
       cardBg: '#A07830',
-      cardTop: "COMPASSO",
-      cardBot: "D'ORO",
+      cardTop: "E-COM",
+      cardBot: "MERCE",
       paperLight: 'rgba(255,248,220,0.94)',
       paperMid:   'rgba(210,185,120,0.80)',
       paperDark:  'rgba(155,125,55,0.72)',
-      icon: `<svg viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M30 8 L36 22 L52 24 L41 35 L44 51 L30 44 L16 51 L19 35 L8 24 L24 22 Z" stroke="white" stroke-width="1.4" fill="none" stroke-linejoin="round"/>
-        <path d="M24 30 L30 16 L36 30" stroke="white" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-      </svg>`,
+      icon: `<div style="font-size:48px">🛒</div>`,
     },
     {
-      name: 'VERONA DESIGN WEEK',
+      name: 'PORTFOLIO',
       bg: '#D05828',
       textColor: 'rgba(60,10,0,0.16)',
       cardBg: '#A83A10',
-      cardTop: 'VERONA',
-      cardBot: 'DESIGN',
+      cardTop: 'PORT',
+      cardBot: 'FOLIO',
       paperLight: 'rgba(255,210,170,0.92)',
       paperMid:   'rgba(210,110,60,0.78)',
       paperDark:  'rgba(155,60,20,0.70)',
-      icon: `<svg viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <circle cx="30" cy="30" r="21" stroke="white" stroke-width="1.4" fill="none"/>
-        <line x1="30" y1="9"  x2="30" y2="51" stroke="white" stroke-width="0.9" opacity="0.5"/>
-        <line x1="9"  y1="30" x2="51" y2="30" stroke="white" stroke-width="0.9" opacity="0.5"/>
-        <path d="M14 14 L46 46" stroke="white" stroke-width="0.7" opacity="0.35"/>
-        <path d="M46 14 L14 46" stroke="white" stroke-width="0.7" opacity="0.35"/>
-        <circle cx="30" cy="30" r="5" stroke="white" stroke-width="1.2" fill="rgba(255,255,255,0.15)"/>
-      </svg>`,
+      icon: `<div style="font-size:48px">🎨</div>`,
     },
     {
-      name: 'FORMA IDENTITÀ',
+      name: 'BRANDING AND IDENTITY',
       bg: '#2870A0',
       textColor: 'rgba(0,15,40,0.16)',
       cardBg: '#165880',
-      cardTop: 'FORMA',
-      cardBot: 'IDENTITÀ',
+      cardTop: 'BRAND',
+      cardBot: 'IDENTITY',
       paperLight: 'rgba(180,225,255,0.92)',
       paperMid:   'rgba(80,160,210,0.78)',
       paperDark:  'rgba(20,90,150,0.70)',
-      icon: `<svg viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <rect x="7" y="22" width="46" height="30" rx="2" stroke="white" stroke-width="1.4" fill="none"/>
-        <line x1="7" y1="31" x2="53" y2="31" stroke="white" stroke-width="1"/>
-        <circle cx="30" cy="13" r="9" stroke="white" stroke-width="1.4" fill="none"/>
-        <line x1="26" y1="9" x2="34" y2="17" stroke="white" stroke-width="1.2" stroke-linecap="round"/>
-        <line x1="34" y1="9" x2="26" y2="17" stroke="white" stroke-width="1.2" stroke-linecap="round"/>
-      </svg>`,
+      icon: `<div style="font-size:48px">💎</div>`,
     },
     {
-      name: 'ACQUA VIVA',
+      name: 'UI/UX DESIGN',
       bg: '#208870',
       textColor: 'rgba(0,25,15,0.16)',
       cardBg: '#106850',
-      cardTop: 'ACQUA',
-      cardBot: 'VIVA',
+      cardTop: 'UI/UX',
+      cardBot: 'DESIGN',
       paperLight: 'rgba(180,255,230,0.92)',
       paperMid:   'rgba(60,185,145,0.78)',
       paperDark:  'rgba(10,120,85,0.70)',
-      icon: `<svg viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M30 8 C30 8 14 26 14 38 C14 47 21 54 30 54 C39 54 46 47 46 38 C46 26 30 8 30 8Z" stroke="white" stroke-width="1.4" fill="none"/>
-        <path d="M20 40 Q26 34 30 38 Q34 42 40 36" stroke="white" stroke-width="1.2" fill="none" stroke-linecap="round"/>
-      </svg>`,
+      icon: `<div style="font-size:48px">✦</div>`,
     },
   ];
 
