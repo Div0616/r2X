@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>r2X — Communication Design</title>
+  <link rel="stylesheet" href="css/globals.css"/>
+  <link rel="stylesheet" href="css/index.css"/>
+</head>
+<body>
+  <div id="cursor"></div>
+
+  <div id="slider">
+    <div id="bg-text"></div>
+
+    <nav>
+      <a class="nav-logo" href="index.html">r2X<span class="logo-dot"></span></a>
+      <a class="nav-about" href="pages/about.html">About us</a>
+    </nav>
+
+    <div id="progress-bar">
+      <div class="prog-track">
+        <div class="prog-fill" id="prog-fill" style="height:20%"></div>
+      </div>
+      <div class="prog-dots">
+        <div class="prog-dot active"></div>
+        <div class="prog-dot"></div>
+        <div class="prog-dot"></div>
+        <div class="prog-dot"></div>
+        <div class="prog-dot"></div>
+      </div>
+    </div>
+
+    <div id="stage">
+      <!-- Top paper -->
+      <div class="paper-top">
+        <svg id="svg-paper-top" viewBox="0 0 230 215" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="gtop1" x1="0" y1="0" x2="0.6" y2="1">
+              <stop offset="0%"   stop-color="rgba(255,230,140,0.92)"/>
+              <stop offset="100%" stop-color="rgba(210,160,40,0.78)"/>
+            </linearGradient>
+            <linearGradient id="gtop2" x1="0.4" y1="0" x2="1" y2="1">
+              <stop offset="0%"   stop-color="rgba(210,160,40,0.78)"/>
+              <stop offset="100%" stop-color="rgba(160,110,10,0.70)"/>
+            </linearGradient>
+          </defs>
+          <path d="M28 210 L115 8 L202 210 Z" fill="url(#gtop1)"/>
+          <path d="M115 8 L202 210 L158 210 Z" fill="url(#gtop2)"/>
+          <path d="M115 8 L80 210 L28 210 Z"  fill="rgba(255,255,255,0.10)"/>
+        </svg>
+      </div>
+
+      <!-- Card -->
+      <div class="proj-card" id="proj-card">
+        <div class="proj-card-inner">
+          <div>
+            <span class="card-title-top" id="card-title-top">r2X</span>
+            <span class="card-title-bot" id="card-title-bot">STUDIO</span>
+          </div>
+          <div class="card-icon" id="card-icon"></div>
+        </div>
+      </div>
+
+      <!-- Bottom paper -->
+      <div class="paper-bottom">
+        <svg id="svg-paper-bot" viewBox="0 0 230 165" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="gbot1" x1="0" y1="0" x2="0.5" y2="1">
+              <stop offset="0%"   stop-color="rgba(255,230,140,0.92)"/>
+              <stop offset="100%" stop-color="rgba(210,160,40,0.78)"/>
+            </linearGradient>
+            <linearGradient id="gbot2" x1="0.5" y1="0" x2="1" y2="1">
+              <stop offset="0%"   stop-color="rgba(210,160,40,0.78)"/>
+              <stop offset="100%" stop-color="rgba(160,110,10,0.70)"/>
+            </linearGradient>
+          </defs>
+          <path d="M8 0 L222 0 L200 165 L30 165 Z"       fill="url(#gbot1)"/>
+          <path d="M8 0 L85 0 L63 165 L30 165 Z"         fill="url(#gbot2)" opacity="0.55"/>
+          <path d="M85 0 L222 0 L200 44 L98 44 Z"        fill="rgba(255,255,255,0.09)"/>
+        </svg>
+      </div>
+    </div>
+
+    <div id="bottom-bar">
+      <div class="bar-grid-btn">
+        <span></span><span></span><span></span>
+        <span></span><span></span><span></span>
+        <span></span><span></span><span></span>
+      </div>
+      <div class="bar-name" id="bar-name">r2X STUDIO</div>
+      <div class="bar-arrow-btn">
+        <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="8" cy="8" r="7" stroke="white" stroke-width="1.4"/>
+          <circle cx="8" cy="8" r="2.8" fill="white"/>
+        </svg>
+      </div>
+    </div>
+
+    <div id="bottom-left">
+      <a href="#" class="active">IT</a>
+      <div class="sep-dot"></div>
+      <a href="#">EN</a>
+    </div>
+
+    <div id="bottom-right">
+      <a href="https://instagram.com" target="_blank">@r2X_life</a>
+      <div class="sep-dot"></div>
+      <a href="pages/about.html#contact">Say hello!</a>
+    </div>
+  </div>
+
+  <script src="js/shared.js"></script>
+  <script src="js/index.js"></script>
+</body>
+</html>

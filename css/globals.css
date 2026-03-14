@@ -1,0 +1,101 @@
+/* ═══════════════════════════════════════════
+   r2X — Global Styles
+   ═══════════════════════════════════════════ */
+
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,300;0,400;0,600;0,700;0,800;0,900;1,400;1,700&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap');
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  /* Core palette */
+  --amber:      #F0A830;
+  --amber-deep: #C87818;
+  --amber-pale: #FFD878;
+  --rust:       #D05020;
+  --gold:       #B87010;
+  --cream:      #FDF6E4;
+  --sand:       #F2D898;
+  --dark:       #141008;
+  --dark-mid:   #1C1508;
+  --dark-card:  #201808;
+  --white:      #FFFDF5;
+
+  /* Semantic */
+  --bg:         var(--dark);
+  --fg:         var(--cream);
+  --accent:     var(--amber);
+  --border:     rgba(240,168,48,0.18);
+  --muted:      rgba(253,246,228,0.42);
+  --very-muted: rgba(253,246,228,0.22);
+
+  /* Type */
+  --font-display: 'Playfair Display', Georgia, serif;
+  --font-body:    'Nunito', sans-serif;
+  --font-mono:    'DM Mono', 'Courier New', monospace;
+
+  /* Easing */
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out:   cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-body);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  cursor: none;
+}
+
+/* ── CUSTOM CURSOR ── */
+#cursor {
+  position: fixed;
+  width: 10px;
+  height: 10px;
+  background: var(--amber);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 99999;
+  transform: translate(-50%, -50%);
+  transition: width 0.3s var(--ease-out-expo),
+              height 0.3s var(--ease-out-expo),
+              background 0.3s ease,
+              opacity 0.2s ease;
+  mix-blend-mode: screen;
+  will-change: transform;
+}
+#cursor.big {
+  width: 52px;
+  height: 52px;
+  background: rgba(240,168,48,0.25);
+}
+#cursor.hidden { opacity: 0; }
+
+/* ── SCROLLBAR ── */
+::-webkit-scrollbar { width: 3px; }
+::-webkit-scrollbar-track { background: var(--dark); }
+::-webkit-scrollbar-thumb { background: var(--amber-deep); border-radius: 2px; }
+
+/* ── SELECTION ── */
+::selection {
+  background: var(--amber);
+  color: var(--dark);
+}
+
+/* ── UTILITY ── */
+.visually-hidden {
+  position: absolute;
+  width: 1px; height: 1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+}
