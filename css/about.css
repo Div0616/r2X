@@ -632,12 +632,27 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  background: linear-gradient(175deg, #FEF0D3 0%, #FFECD2 50%, #FFF7ED 100%);
+  border-radius: 16px;
+  padding: 24px;
 }
 
-.skills-logo svg {
+.skills-logo-img {
   width: 100%;
-  max-width: 320px;
+  max-width: 380px;
   height: auto;
+  object-fit: contain;
+  mix-blend-mode: multiply;
+}
+
+/* ── CURSOR OVERRIDE FOR ABOUT (LIGHT BG) ── */
+body #cursor {
+  background: #2D1B06 !important;
+  mix-blend-mode: normal !important;
+  opacity: 0.75 !important;
+}
+body #cursor.big {
+  background: rgba(45, 27, 6, 0.25) !important;
 }
 
 /* ── GLASSMORPHISM SKILL BLOCK ── */
@@ -830,7 +845,7 @@ body {
 /* ── GLASSMORPHISM PROJECT ROW ── */
 .proj-row {
   display: grid;
-  grid-template-columns: 52px 1fr auto 100px;
+  grid-template-columns: 52px 1fr auto 100px auto;
   align-items: center;
   gap: 28px;
   padding: 26px 28px;
@@ -904,6 +919,32 @@ body {
   font-size: 10px;
   color: rgba(45, 27, 6, 0.25);
   text-align: right;
+}
+
+.proj-visit-btn {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: #FF6B4A;
+  padding: 8px 18px;
+  border: 1px solid rgba(255, 107, 74, 0.35);
+  border-radius: 24px;
+  transition: background 0.3s, color 0.3s, border-color 0.3s, transform 0.3s var(--ease-out-expo);
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+}
+
+.proj-visit-btn:hover {
+  background: linear-gradient(135deg, #FF6B4A, #F0A830);
+  color: #fff;
+  border-color: transparent;
+  transform: scale(1.05);
+  box-shadow: 0 4px 16px rgba(255, 107, 74, 0.3);
 }
 
 /* ── CONTACT SECTION ── */
@@ -1413,7 +1454,7 @@ footer {
   }
 
   .proj-row {
-    grid-template-columns: 40px 1fr auto;
+    grid-template-columns: 40px 1fr auto auto;
     gap: 16px;
   }
 
@@ -1559,7 +1600,7 @@ footer {
   }
 
   .proj-row {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr auto;
     gap: 8px;
     padding: 20px;
     border-radius: 12px;
@@ -1574,7 +1615,12 @@ footer {
   }
 
   .proj-row-cat {
-    font-size: 8.5px;
+    display: none;
+  }
+
+  .proj-visit-btn {
+    font-size: 9px;
+    padding: 6px 14px;
   }
 
   #contact {

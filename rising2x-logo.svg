@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 120" fill="none">
+  <!-- Red starburst/rays -->
+  <g transform="translate(72, 28)">
+    <!-- Center ray (vertical up) -->
+    <line x1="0" y1="0" x2="0" y2="-28" stroke="#D42B2B" stroke-width="4.5" stroke-linecap="round"/>
+    <!-- Ray upper-right -->
+    <line x1="0" y1="0" x2="18" y2="-22" stroke="#D42B2B" stroke-width="4.5" stroke-linecap="round"/>
+    <!-- Ray right -->
+    <line x1="0" y1="0" x2="26" y2="-8" stroke="#D42B2B" stroke-width="4.5" stroke-linecap="round"/>
+    <!-- Ray lower-left -->
+    <line x1="0" y1="0" x2="-22" y2="18" stroke="#D42B2B" stroke-width="4.5" stroke-linecap="round"/>
+    <!-- Ray left -->
+    <line x1="0" y1="0" x2="-28" y2="2" stroke="#D42B2B" stroke-width="4.5" stroke-linecap="round"/>
+    <!-- Ray upper-left -->
+    <line x1="0" y1="0" x2="-16" y2="-24" stroke="#D42B2B" stroke-width="4.5" stroke-linecap="round"/>
+  </g>
+  <!-- Text: RISING -->
+  <text x="58" y="92" font-family="Arial Black, Arial, Helvetica, sans-serif" font-size="80" font-weight="900" fill="#1A1A1A" letter-spacing="2">RISING</text>
+  <!-- Text: 2 (red) -->
+  <text x="378" y="92" font-family="Arial Black, Arial, Helvetica, sans-serif" font-size="80" font-weight="900" fill="#D42B2B" letter-spacing="2">2</text>
+  <!-- Text: X -->
+  <text x="430" y="92" font-family="Arial Black, Arial, Helvetica, sans-serif" font-size="80" font-weight="900" fill="#1A1A1A" letter-spacing="2">X</text>
+</svg>
