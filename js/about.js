@@ -107,14 +107,6 @@
     motionObs.observe(block);
   });
 
-  // Stagger contact cards
-  const contactCards = document.querySelectorAll('.c-card');
-  contactCards.forEach((card, i) => {
-    card.classList.add('scroll-rotate');
-    card.style.transitionDelay = `${i * 0.12}s`;
-    motionObs.observe(card);
-  });
-
   /* ── SKILL BAR ANIMATE ── */
   const barFills = document.querySelectorAll('.bar-fill');
   const barObs = new IntersectionObserver(entries => {
@@ -195,5 +187,158 @@
       a.classList.add('active');
     }
   });
+
+  /* ═══════════════════════════════════════════
+     FAQ ACCORDION
+     ═══════════════════════════════════════════ */
+  const faqItems = document.querySelectorAll('.faq-item');
+  faqItems.forEach(item => {
+    const btn = item.querySelector('.faq-question');
+    if (!btn) return;
+    btn.addEventListener('click', () => {
+      const isActive = item.classList.contains('active');
+      // Close all
+      faqItems.forEach(other => {
+        other.classList.remove('active');
+        const otherBtn = other.querySelector('.faq-question');
+        if (otherBtn) otherBtn.setAttribute('aria-expanded', 'false');
+      });
+      // Toggle clicked
+      if (!isActive) {
+        item.classList.add('active');
+        btn.setAttribute('aria-expanded', 'true');
+      }
+    });
+  });
+
+  // Stagger FAQ items with scroll animation
+  faqItems.forEach((item, i) => {
+    item.classList.add('scroll-blur');
+    item.style.transitionDelay = `${i * 0.08}s`;
+    motionObs.observe(item);
+  });
+
+  /* ═══════════════════════════════════════════
+     ANIMATED CHARACTER
+     ═══════════════════════════════════════════ */
+  const character = document.getElementById('contact-character');
+  const speechBubble = document.getElementById('character-speech');
+  const contactForm = document.getElementById('contact-form');
+
+  if (character && contactForm) {
+    const formInputs = contactForm.querySelectorAll('input, select, textarea');
+    let typingTimeout;
+    const speeches = {
+      idle: '👋 Hi there! Type away...',
+      name: '😊 Nice to meet you!',
+      email: '📧 We\'ll reply fast!',
+      phone: '📱 Optional but helpful!',
+      subject: '🎯 Great pick!',
+      message: '✍️ Tell us everything!',
+      celebrate: '🎉 Message sent! Yay!'
+    };
+
+    function setCharacterState(state, fieldName) {
+      character.classList.remove('typing', 'celebrate');
+      if (state === 'typing') {
+        character.classList.add('typing');
+        if (speechBubble && speeches[fieldName]) {
+          speechBubble.textContent = speeches[fieldName];
+        }
+      } else if (state === 'celebrate') {
+        character.classList.add('celebrate');
+        if (speechBubble) {
+          speechBubble.textContent = speeches.celebrate;
+        }
+      } else {
+        if (speechBubble) {
+          speechBubble.textContent = speeches.idle;
+        }
+      }
+    }
+
+    formInputs.forEach(input => {
+      const fieldName = input.id.replace('contact-', '');
+
+      input.addEventListener('focus', () => {
+        setCharacterState('typing', fieldName);
+      });
+
+      input.addEventListener('input', () => {
+        clearTimeout(typingTimeout);
+        setCharacterState('typing', fieldName);
+        typingTimeout = setTimeout(() => {
+          // Stay in typing state while focused
+        }, 2000);
+      });
+
+      input.addEventListener('blur', () => {
+        clearTimeout(typingTimeout);
+        typingTimeout = setTimeout(() => {
+          if (!document.activeElement || !contactForm.contains(document.activeElement) ||
+              document.activeElement === document.body) {
+            setCharacterState('idle');
+          }
+        }, 300);
+      });
+    });
+
+    /* ── FORM SUBMISSION ── */
+    contactForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const submitBtn = document.getElementById('form-submit-btn');
+      const successMsg = document.getElementById('form-success');
+
+      // Disable button during submission
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = 'Sending... <span class="btn-arrow">⟳</span>';
+
+      try {
+        const formData = new FormData(contactForm);
+        const response = await fetch(contactForm.action, {
+          method: 'POST',
+          body: formData,
+          headers: { 'Accept': 'application/json' }
+        });
+
+        if (response.ok) {
+          setCharacterState('celebrate');
+          contactForm.reset();
+          if (successMsg) successMsg.classList.add('show');
+          submitBtn.innerHTML = 'Sent! <span class="btn-arrow">✓</span>';
+
+          setTimeout(() => {
+            setCharacterState('idle');
+            submitBtn.disabled = false;
+            submitBtn.innerHTML = 'Send Message <span class="btn-arrow">→</span>';
+            if (successMsg) successMsg.classList.remove('show');
+          }, 5000);
+        } else {
+          throw new Error('Form submission failed');
+        }
+      } catch (error) {
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = 'Try Again <span class="btn-arrow">→</span>';
+        if (speechBubble) speechBubble.textContent = '😕 Oops! Try again.';
+        setTimeout(() => {
+          submitBtn.innerHTML = 'Send Message <span class="btn-arrow">→</span>';
+          setCharacterState('idle');
+        }, 3000);
+      }
+    });
+  }
+
+  /* ── Scroll reveal for new sections ── */
+  const contactLayout = document.querySelector('.contact-layout');
+  if (contactLayout) {
+    contactLayout.classList.add('scroll-scale');
+    motionObs.observe(contactLayout);
+  }
+
+  const faqInner = document.querySelector('.faq-inner');
+  if (faqInner) {
+    faqInner.classList.add('scroll-slide-left');
+    motionObs.observe(faqInner);
+  }
 
 })();

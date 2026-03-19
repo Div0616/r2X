@@ -947,6 +947,144 @@ body #cursor.big {
   box-shadow: 0 4px 16px rgba(255, 107, 74, 0.3);
 }
 
+/* ── FAQ SECTION ── */
+#faq {
+  background: linear-gradient(170deg, #FFF7ED 0%, #FFF2E0 100%);
+  padding: 112px 48px;
+  position: relative;
+  overflow: hidden;
+}
+
+.faq-bg-orb {
+  position: absolute;
+  width: 700px;
+  height: 700px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(240, 168, 48, 0.1) 0%, transparent 65%);
+  left: -200px;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+.faq-inner {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.faq-h2 {
+  font-family: var(--font-display);
+  font-size: clamp(38px, 6vw, 66px);
+  font-weight: 900;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  margin-bottom: 16px;
+  color: #2D1B06;
+}
+
+.faq-h2 em {
+  font-style: italic;
+  color: #FF6B4A;
+}
+
+.faq-desc {
+  font-size: 15px;
+  line-height: 1.82;
+  color: rgba(45, 27, 6, 0.52);
+  margin-bottom: 48px;
+  max-width: 500px;
+}
+
+.faq-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.faq-item {
+  background: rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  border-radius: 16px;
+  overflow: hidden;
+  transition: background 0.3s, box-shadow 0.3s, transform 0.35s var(--ease-out-expo);
+  box-shadow: 0 4px 20px rgba(200, 120, 24, 0.06);
+}
+
+.faq-item:hover {
+  background: rgba(255, 255, 255, 0.55);
+  box-shadow: 0 12px 40px rgba(200, 120, 24, 0.1);
+  transform: translateY(-2px);
+}
+
+.faq-item.active {
+  background: rgba(255, 255, 255, 0.6);
+  box-shadow: 0 16px 48px rgba(200, 120, 24, 0.12);
+}
+
+.faq-question {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 24px 28px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: var(--font-body);
+  font-size: 16px;
+  font-weight: 700;
+  color: #2D1B06;
+  text-align: left;
+  transition: color 0.2s;
+}
+
+.faq-question:hover {
+  color: #FF6B4A;
+}
+
+.faq-item.active .faq-question {
+  color: #FF6B4A;
+}
+
+.faq-chevron {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: rgba(255, 107, 74, 0.08);
+  color: #FF6B4A;
+  flex-shrink: 0;
+  transition: transform 0.4s var(--ease-out-expo), background 0.3s;
+}
+
+.faq-item.active .faq-chevron {
+  transform: rotate(180deg);
+  background: rgba(255, 107, 74, 0.15);
+}
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s var(--ease-out-expo), padding 0.4s var(--ease-out-expo);
+  padding: 0 28px;
+}
+
+.faq-item.active .faq-answer {
+  max-height: 300px;
+  padding: 0 28px 24px;
+}
+
+.faq-answer p {
+  font-size: 14px;
+  line-height: 1.85;
+  color: rgba(45, 27, 6, 0.55);
+}
+
 /* ── CONTACT SECTION ── */
 #contact {
   background: linear-gradient(175deg, #FDEBD0 0%, #FFECD2 50%, #FFE0B2 100%);
@@ -955,23 +1093,10 @@ body #cursor.big {
   overflow: hidden;
 }
 
-.contact-bg-orb {
-  position: absolute;
-  width: 900px;
-  height: 900px;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(255, 107, 74, 0.12) 0%, transparent 65%);
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  pointer-events: none;
-  will-change: transform;
-}
-
 .contact-inner {
   position: relative;
   z-index: 2;
-  max-width: 680px;
+  max-width: 960px;
   margin: 0 auto;
   text-align: center;
 }
@@ -986,11 +1111,11 @@ body #cursor.big {
 
 .contact-h2 {
   font-family: var(--font-display);
-  font-size: clamp(46px, 8vw, 96px);
+  font-size: clamp(46px, 8vw, 80px);
   font-weight: 900;
   line-height: 0.93;
   letter-spacing: -0.04em;
-  margin-bottom: 28px;
+  margin-bottom: 20px;
   color: #2D1B06;
 }
 
@@ -1003,79 +1128,514 @@ body #cursor.big {
   font-size: 15px;
   line-height: 1.82;
   color: rgba(45, 27, 6, 0.52);
-  margin-bottom: 60px;
-  max-width: 400px;
+  margin-bottom: 52px;
+  max-width: 440px;
   margin-left: auto;
   margin-right: auto;
 }
 
-.contact-cards {
+/* ── CONTACT LAYOUT (Character + Form) ── */
+.contact-layout {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 16px;
-  margin-bottom: 52px;
+  grid-template-columns: 220px 1fr;
+  gap: 48px;
   text-align: left;
+  align-items: start;
 }
 
-/* ── GLASSMORPHISM CONTACT CARD ── */
-.c-card {
-  background: rgba(255, 255, 255, 0.38);
-  backdrop-filter: blur(18px);
-  -webkit-backdrop-filter: blur(18px);
-  border: 1px solid rgba(255, 255, 255, 0.55);
-  border-radius: 16px;
-  padding: 34px 28px 28px;
-  position: relative;
-  overflow: hidden;
-  cursor: none;
-  text-decoration: none;
-  color: inherit;
-  display: block;
-  transition: background 0.3s, transform 0.35s var(--ease-out-expo), box-shadow 0.3s;
-  box-shadow: 0 4px 20px rgba(200, 120, 24, 0.06);
+/* ── ANIMATED CHARACTER ── */
+.contact-character {
+  position: sticky;
+  top: 120px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
 }
 
-.c-card:hover {
-  background: rgba(255, 255, 255, 0.58);
-  transform: translateY(-5px);
-  box-shadow: 0 16px 48px rgba(200, 120, 24, 0.12);
+.character-svg {
+  width: 200px;
+  height: auto;
+  animation: charFloat 3s ease-in-out infinite;
+  filter: drop-shadow(0 8px 24px rgba(255, 107, 74, 0.2));
 }
 
-.c-card-icon {
-  font-size: 20px;
-  display: block;
-  margin-bottom: 16px;
+@keyframes charFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
 }
 
-.c-card-lbl {
-  font-family: var(--font-mono);
-  font-size: 9px;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  color: #FF6B4A;
-  margin-bottom: 7px;
+/* Shadow syncs with float */
+.char-shadow {
+  animation: shadowPulse 3s ease-in-out infinite;
 }
 
-.c-card-val {
-  font-size: 13px;
+@keyframes shadowPulse {
+  0%, 100% { rx: 50; opacity: 1; }
+  50% { rx: 42; opacity: 0.6; }
+}
+
+/* ── IDLE ANIMATIONS ── */
+
+/* Idle blink */
+.char-lid-left,
+.char-lid-right {
+  animation: blink 4s ease-in-out infinite;
+}
+
+@keyframes blink {
+  0%, 42%, 46%, 100% { ry: 0; }
+  44% { ry: 14; }
+}
+
+/* Idle breathing (belly) */
+.char-belly {
+  animation: breathe 3.5s ease-in-out infinite;
+}
+
+@keyframes breathe {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.06, 1.08); }
+}
+
+/* Heart idle pulse */
+.char-heart {
+  animation: heartBeat 2s ease-in-out infinite;
+  transform-origin: 110px 148px;
+}
+
+@keyframes heartBeat {
+  0%, 100% { transform: scale(1); opacity: 0.6; }
+  15% { transform: scale(1.15); opacity: 0.8; }
+  30% { transform: scale(1); opacity: 0.6; }
+  45% { transform: scale(1.1); opacity: 0.75; }
+}
+
+/* Visor LED scan */
+.char-visor-light {
+  animation: visorScan 2.5s ease-in-out infinite;
+}
+
+@keyframes visorScan {
+  0%, 100% { opacity: 0.7; width: 12px; }
+  50% { opacity: 1; width: 20px; }
+}
+
+/* Antenna ring idle pulse */
+.char-antenna-ring {
+  animation: ringPulse 2s ease-in-out infinite;
+}
+
+@keyframes ringPulse {
+  0%, 100% { r: 10; opacity: 0.3; }
+  50% { r: 14; opacity: 0.1; }
+}
+
+/* Button middle glow */
+.char-button-2 {
+  animation: buttonGlow 2s ease-in-out infinite alternate;
+}
+
+@keyframes buttonGlow {
+  from { fill: #F0A830; }
+  to { fill: #FFD54F; }
+}
+
+/* Shoe idle tap */
+.char-shoe-left {
+  animation: shoeTap 4s ease-in-out infinite;
+  transform-origin: 87px 228px;
+}
+
+@keyframes shoeTap {
+  0%, 80%, 100% { transform: rotate(0deg); }
+  85% { transform: rotate(-5deg); }
+  90% { transform: rotate(0deg); }
+  95% { transform: rotate(-3deg); }
+}
+
+/* ── TYPING STATE ── */
+
+/* Character typing bounce */
+.contact-character.typing .character-svg {
+  animation: charBounce 0.5s ease-in-out infinite;
+}
+
+@keyframes charBounce {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  25% { transform: translateY(-8px) rotate(-2deg); }
+  75% { transform: translateY(-8px) rotate(2deg); }
+}
+
+/* Typing — pupils look around */
+.contact-character.typing .char-pupil-left,
+.contact-character.typing .char-pupil-right {
+  animation: eyeLook 1.2s ease-in-out infinite alternate;
+}
+
+.contact-character.typing .char-highlight-left,
+.contact-character.typing .char-highlight-right {
+  animation: eyeLook 1.2s ease-in-out infinite alternate;
+}
+
+@keyframes eyeLook {
+  0% { transform: translateX(-3px); }
+  50% { transform: translateX(3px); }
+  100% { transform: translateX(-3px) translateY(1px); }
+}
+
+/* Typing — eyebrows raise */
+.contact-character.typing .char-brow-left {
+  animation: browRaiseLeft 0.8s ease-in-out infinite alternate;
+}
+
+.contact-character.typing .char-brow-right {
+  animation: browRaiseRight 0.8s ease-in-out infinite alternate;
+}
+
+@keyframes browRaiseLeft {
+  from { transform: translateY(0); opacity: 0.4; }
+  to { transform: translateY(-3px); opacity: 0.7; }
+}
+
+@keyframes browRaiseRight {
+  from { transform: translateY(0); opacity: 0.4; }
+  to { transform: translateY(-3px); opacity: 0.7; }
+}
+
+/* Typing — blush intensifies */
+.contact-character.typing .char-blush-left,
+.contact-character.typing .char-blush-right {
+  animation: blushPulse 1s ease-in-out infinite alternate;
+}
+
+@keyframes blushPulse {
+  from { opacity: 0.35; rx: 8; }
+  to { opacity: 0.6; rx: 10; }
+}
+
+/* Typing — antenna glow */
+.contact-character.typing .char-antenna-ball {
+  animation: antennaGlow 0.6s ease-in-out infinite alternate;
+}
+
+@keyframes antennaGlow {
+  from { fill: #F0A830; r: 6; }
+  to { fill: #FF6B4A; r: 8; }
+}
+
+.contact-character.typing .char-antenna-ring {
+  animation: ringTyping 0.6s ease-in-out infinite alternate;
+}
+
+@keyframes ringTyping {
+  from { r: 10; opacity: 0.3; stroke: #F0A830; }
+  to { r: 16; opacity: 0.6; stroke: #FF6B4A; }
+}
+
+/* Typing — mouth talks */
+.contact-character.typing .char-mouth {
+  animation: mouthTalk 0.5s ease-in-out infinite;
+}
+
+@keyframes mouthTalk {
+  0%, 100% { d: path("M95 80 Q110 92 125 80"); }
+  50% { d: path("M95 82 Q110 86 125 82"); }
+}
+
+/* Typing — tongue peeks */
+.contact-character.typing .char-tongue {
+  animation: tonguePeek 1.5s ease-in-out infinite;
+}
+
+@keyframes tonguePeek {
+  0%, 60%, 100% { opacity: 0; transform: translateY(0); }
+  70%, 90% { opacity: 0.7; transform: translateY(2px); }
+}
+
+/* Typing — heart speeds up */
+.contact-character.typing .char-heart {
+  animation: heartFast 0.6s ease-in-out infinite;
+}
+
+@keyframes heartFast {
+  0%, 100% { transform: scale(1); opacity: 0.6; }
+  50% { transform: scale(1.2); opacity: 0.9; }
+}
+
+/* Typing — no blink (wider eyes) */
+.contact-character.typing .char-lid-left,
+.contact-character.typing .char-lid-right {
+  animation: none;
+  ry: 0;
+}
+
+/* Typing — fingers wiggle */
+.contact-character.typing .char-fingers-right {
+  animation: fingerWiggle 0.4s ease-in-out infinite alternate;
+  transform-origin: 182px 162px;
+}
+
+@keyframes fingerWiggle {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(8deg); }
+}
+
+/* ── CELEBRATE STATE ── */
+
+.contact-character.celebrate .character-svg {
+  animation: charCelebrate 0.6s var(--ease-out-expo) 3;
+}
+
+@keyframes charCelebrate {
+  0% { transform: translateY(0) scale(1); }
+  30% { transform: translateY(-24px) scale(1.12); }
+  50% { transform: translateY(-24px) scale(1.12) rotate(5deg); }
+  70% { transform: translateY(-24px) scale(1.12) rotate(-5deg); }
+  100% { transform: translateY(0) scale(1) rotate(0deg); }
+}
+
+/* Celebrate — arm wave */
+.contact-character.celebrate .char-arm-right {
+  animation: armWave 0.5s ease-in-out 4;
+  transform-origin: 160px 118px;
+}
+
+@keyframes armWave {
+  0%, 100% { transform: rotate(0deg); }
+  50% { transform: rotate(-30deg); }
+}
+
+.contact-character.celebrate .char-fingers-right {
+  animation: fingerWave 0.3s ease-in-out 6;
+  transform-origin: 182px 162px;
+}
+
+@keyframes fingerWave {
+  0%, 100% { transform: rotate(0deg); }
+  50% { transform: rotate(15deg); }
+}
+
+/* Celebrate — wide smile */
+.contact-character.celebrate .char-mouth {
+  d: path("M90 78 Q110 98 130 78");
+}
+
+/* Celebrate — happy eyes (squint) */
+.contact-character.celebrate .char-lid-left {
+  animation: happySquint 0.6s var(--ease-out-expo) forwards;
+}
+
+.contact-character.celebrate .char-lid-right {
+  animation: happySquint 0.6s var(--ease-out-expo) forwards;
+}
+
+@keyframes happySquint {
+  to { ry: 5; }
+}
+
+/* Celebrate — blush goes strong */
+.contact-character.celebrate .char-blush-left,
+.contact-character.celebrate .char-blush-right {
+  opacity: 0.65;
+  rx: 10;
+  transition: opacity 0.3s, rx 0.3s;
+}
+
+/* Celebrate — heart goes wild */
+.contact-character.celebrate .char-heart {
+  animation: heartCelebrate 0.4s ease-in-out infinite;
+}
+
+@keyframes heartCelebrate {
+  0%, 100% { transform: scale(1); opacity: 0.8; }
+  50% { transform: scale(1.3); opacity: 1; }
+}
+
+/* Celebrate — visor flashes */
+.contact-character.celebrate .char-visor-light {
+  animation: visorFlash 0.3s ease-in-out infinite alternate;
+}
+
+@keyframes visorFlash {
+  from { fill: #4CAF50; opacity: 0.7; }
+  to { fill: #FFD54F; opacity: 1; }
+}
+
+/* Celebrate — shoes happy tap */
+.contact-character.celebrate .char-shoe-left,
+.contact-character.celebrate .char-shoe-right {
+  animation: shoeHop 0.4s ease-in-out infinite alternate;
+}
+
+.contact-character.celebrate .char-shoe-left {
+  transform-origin: 87px 228px;
+}
+
+.contact-character.celebrate .char-shoe-right {
+  transform-origin: 133px 228px;
+  animation-delay: 0.2s;
+}
+
+@keyframes shoeHop {
+  from { transform: translateY(0); }
+  to { transform: translateY(-4px); }
+}
+
+/* Speech bubble */
+.character-speech {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  border-radius: 14px;
+  padding: 10px 16px;
+  font-size: 12px;
   font-weight: 600;
-  color: rgba(45, 27, 6, 0.7);
-  line-height: 1.5;
-  word-break: break-word;
+  color: #2D1B06;
+  position: relative;
+  text-align: center;
+  max-width: 180px;
+  box-shadow: 0 4px 16px rgba(200, 120, 24, 0.08);
+  transition: opacity 0.3s, transform 0.3s var(--ease-out-expo);
 }
 
-.c-card-arrow {
+.character-speech::before {
+  content: '';
   position: absolute;
-  top: 26px;
-  right: 22px;
-  font-size: 15px;
-  color: rgba(45, 27, 6, 0.2);
-  transition: color 0.2s, transform 0.3s var(--ease-out-expo);
+  top: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-bottom: 8px solid rgba(255, 255, 255, 0.7);
 }
 
-.c-card:hover .c-card-arrow {
+/* ── CONTACT FORM ── */
+.contact-form {
+  background: rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  border-radius: 20px;
+  padding: 40px;
+  box-shadow: 0 8px 32px rgba(200, 120, 24, 0.08), 0 1px 0 rgba(255, 255, 255, 0.6) inset;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-group-full {
+  margin-bottom: 28px;
+}
+
+.form-group label {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(45, 27, 6, 0.5);
+  font-weight: 500;
+}
+
+.form-group label .required {
   color: #FF6B4A;
-  transform: translate(3px, -3px);
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 600;
+  color: #2D1B06;
+  background: rgba(255, 255, 255, 0.5);
+  border: 1.5px solid rgba(210, 130, 50, 0.15);
+  border-radius: 12px;
+  padding: 14px 18px;
+  outline: none;
+  transition: border-color 0.3s, box-shadow 0.3s, background 0.3s;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: rgba(45, 27, 6, 0.25);
+  font-weight: 400;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  border-color: #FF6B4A;
+  background: rgba(255, 255, 255, 0.7);
+  box-shadow: 0 0 0 4px rgba(255, 107, 74, 0.1);
+}
+
+.form-group select {
+  appearance: none;
+  -webkit-appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg width='12' height='8' viewBox='0 0 12 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1.5L6 6.5L11 1.5' stroke='%23FF6B4A' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 16px center;
+  padding-right: 44px;
+  cursor: pointer;
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.form-submit-btn {
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  justify-content: center;
+}
+
+.form-success {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 20px;
+  padding: 16px;
+  background: rgba(76, 175, 80, 0.1);
+  border: 1px solid rgba(76, 175, 80, 0.25);
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: 700;
+  color: #2e7d32;
+}
+
+.form-success.show {
+  display: flex;
+  animation: fadeUp 0.5s var(--ease-out-expo);
+}
+
+.success-icon {
+  width: 24px;
+  height: 24px;
+  background: #4CAF50;
+  color: #fff;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 900;
 }
 
 .cta-btn {
@@ -1092,7 +1652,7 @@ body #cursor.big {
   text-decoration: none;
   padding: 18px 44px;
   border-radius: 50px;
-  cursor: none;
+  cursor: pointer;
   transition: transform 0.3s var(--ease-out-expo),
     box-shadow 0.3s ease;
   box-shadow: 0 4px 20px rgba(255, 107, 74, 0.25);
@@ -1320,8 +1880,20 @@ footer {
     gap: 20px;
   }
 
+  #faq {
+    padding: 88px 32px;
+  }
+
   #contact {
     padding: 88px 32px;
+  }
+
+  .contact-layout {
+    gap: 36px;
+  }
+
+  .contact-form {
+    padding: 32px;
   }
 
   footer {
@@ -1466,14 +2038,57 @@ footer {
     margin-bottom: 40px;
   }
 
+  /* FAQ */
+  #faq {
+    padding: 72px 24px;
+  }
+
+  .faq-h2 {
+    font-size: clamp(30px, 6vw, 50px);
+  }
+
+  .faq-question {
+    padding: 20px 24px;
+    font-size: 15px;
+  }
+
+  .faq-answer {
+    padding: 0 24px;
+  }
+
+  .faq-item.active .faq-answer {
+    padding: 0 24px 20px;
+  }
+
   /* Contact */
   #contact {
     padding: 72px 24px;
   }
 
-  .contact-cards {
+  .contact-layout {
     grid-template-columns: 1fr;
-    gap: 12px;
+    gap: 32px;
+  }
+
+  .contact-character {
+    position: relative;
+    top: auto;
+    flex-direction: row;
+    gap: 20px;
+  }
+
+  .character-svg {
+    width: 120px;
+  }
+
+  .character-speech::before {
+    top: 50%;
+    left: -8px;
+    transform: translateY(-50%);
+    border-left: none;
+    border-right: 8px solid rgba(255, 255, 255, 0.7);
+    border-top: 8px solid transparent;
+    border-bottom: 8px solid transparent;
   }
 
   .contact-h2 {
@@ -1482,6 +2097,15 @@ footer {
 
   .contact-desc {
     margin-bottom: 40px;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .contact-form {
+    padding: 28px;
   }
 
   /* Footer */
@@ -1623,6 +2247,37 @@ footer {
     padding: 6px 14px;
   }
 
+  #faq {
+    padding: 56px 16px;
+  }
+
+  .faq-h2 {
+    font-size: clamp(28px, 7vw, 42px);
+  }
+
+  .faq-question {
+    padding: 18px 16px;
+    font-size: 14px;
+    gap: 12px;
+  }
+
+  .faq-chevron {
+    width: 28px;
+    height: 28px;
+  }
+
+  .faq-answer {
+    padding: 0 16px;
+  }
+
+  .faq-item.active .faq-answer {
+    padding: 0 16px 18px;
+  }
+
+  .faq-item {
+    border-radius: 12px;
+  }
+
   #contact {
     padding: 56px 16px;
   }
@@ -1631,9 +2286,32 @@ footer {
     font-size: clamp(32px, 10vw, 56px);
   }
 
-  .c-card {
-    padding: 24px 20px 20px;
-    border-radius: 12px;
+  .contact-character {
+    flex-direction: column;
+  }
+
+  .character-svg {
+    width: 100px;
+  }
+
+  .character-speech {
+    font-size: 11px;
+    padding: 8px 12px;
+  }
+
+  .character-speech::before {
+    top: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-bottom: 8px solid rgba(255, 255, 255, 0.7);
+    border-top: none;
+  }
+
+  .contact-form {
+    padding: 20px;
+    border-radius: 14px;
   }
 
   .cta-btn {
