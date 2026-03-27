@@ -1,4 +1,9 @@
 User-agent: *
 Allow: /
 
+# Block irrelevant paths if any exist
+Disallow: /drafts/
+Disallow: /private/
+
+# Sitemap location
 Sitemap: https://whalevoice.in/sitemap.xml

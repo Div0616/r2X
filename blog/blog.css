@@ -1,0 +1,132 @@
+/* Blog-specific styles — inherits main site fonts, colors, and variables */
+
+.blog-post {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 6rem 2rem 8rem;
+}
+
+.post-header {
+  margin-bottom: 3rem;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+  padding-bottom: 2rem;
+}
+
+.post-header h1 {
+  font-size: clamp(1.75rem, 4vw, 2.75rem);
+  line-height: 1.2;
+  margin: 1rem 0;
+}
+
+.post-meta {
+  font-size: 0.8rem;
+  opacity: 0.4;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.post-intro {
+  font-size: 1.15rem;
+  line-height: 1.7;
+  opacity: 0.75;
+  margin-top: 1.5rem;
+}
+
+.post-body h2 {
+  font-size: 1.4rem;
+  margin: 3rem 0 1rem;
+}
+
+.post-body h3 {
+  font-size: 1.1rem;
+  margin: 2rem 0 0.75rem;
+  opacity: 0.85;
+}
+
+.post-body p {
+  line-height: 1.8;
+  opacity: 0.75;
+  margin-bottom: 1.25rem;
+}
+
+.post-body ul {
+  padding-left: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.post-body ul li {
+  line-height: 1.8;
+  opacity: 0.75;
+  margin-bottom: 0.5rem;
+}
+
+.post-cta {
+  margin-top: 4rem;
+  padding: 2rem;
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 4px;
+  text-align: center;
+}
+
+.post-cta p {
+  font-size: 1.1rem;
+  opacity: 1 !important;
+}
+
+.post-cta a {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+/* Blog index page styles */
+.blog-hero {
+  padding: 8rem 2rem 4rem;
+  text-align: center;
+}
+.blog-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  padding: 2rem 4rem 6rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.blog-card {
+  border: 1px solid rgba(255,255,255,0.1);
+  padding: 2rem;
+  border-radius: 4px;
+  transition: border-color 0.3s ease;
+}
+.blog-card:hover {
+  border-color: rgba(255,255,255,0.4);
+}
+.blog-tag {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  opacity: 0.5;
+}
+.blog-card h2 {
+  margin: 1rem 0;
+  font-size: 1.25rem;
+  line-height: 1.4;
+}
+.blog-card h2 a {
+  text-decoration: none;
+  color: inherit;
+}
+.blog-card h2 a:hover {
+  opacity: 0.7;
+}
+.blog-card p {
+  opacity: 0.6;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+.blog-date {
+  font-size: 0.75rem;
+  opacity: 0.4;
+  display: block;
+  margin-top: 1rem;
+}
