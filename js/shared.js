@@ -47,4 +47,31 @@
   } else {
     addHoverTargets();
   }
+
+  // ── NAV SCROLL ──
+  const nav = document.querySelector('.about-nav');
+  if (nav) {
+    window.addEventListener('scroll', function () {
+      if (window.scrollY > 60) {
+        nav.classList.add('scrolled');
+      } else {
+        nav.classList.remove('scrolled');
+      }
+    }, { passive: true });
+  }
+
+  // ── HAMBURGER TOGGLE ──
+  const toggle = document.querySelector('.nav-toggle');
+  const links = document.querySelector('.nav-links');
+  if (toggle && links) {
+    toggle.addEventListener('click', function () {
+      links.classList.toggle('open');
+    });
+    // Close menu when a link is clicked
+    links.querySelectorAll('a').forEach(function (a) {
+      a.addEventListener('click', function () {
+        links.classList.remove('open');
+      });
+    });
+  }
 })();
